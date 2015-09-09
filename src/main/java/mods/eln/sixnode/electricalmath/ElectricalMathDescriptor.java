@@ -127,6 +127,7 @@ public class ElectricalMathDescriptor extends SixNodeDescriptor implements IPlug
 		extender.add(new GuiLabel(6, y,"  batteryCharge(normalizedBatVoltage)")); y+=9;
 		extender.add(new GuiLabel(6, y,"  rc(tao,value)")); y+=9;
 		extender.add(new GuiLabel(6, y,"  pid(target,hit,p,i,d)")); y+=9;
+		extender.add(new GuiLabel(6,y," pid(target,hit,p,i,d,minOut,Maxout)")); y+=9;
 		
 		y+=9;
 //		list.add(new OperatorMapperFunc("sin", 1, Sin.class));

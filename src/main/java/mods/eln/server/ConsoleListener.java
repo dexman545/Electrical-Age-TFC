@@ -2,9 +2,12 @@ package mods.eln.server;
 
 import mods.eln.Eln;
 import mods.eln.misc.Utils;
+import mods.eln.sim.Simulator;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
+
+import java.util.EmptyStackException;
 
 public class ConsoleListener extends CommandBase {
 

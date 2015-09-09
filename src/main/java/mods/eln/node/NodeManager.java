@@ -2,13 +2,8 @@ package mods.eln.node;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Random;
 
 import mods.eln.misc.Coordonate;
 import mods.eln.misc.Direction;
@@ -20,15 +15,15 @@ import net.minecraft.world.WorldSavedData;
 public class NodeManager extends WorldSavedData {
 	public static NodeManager instance = null;
 
-	HashMap<Coordonate, NodeBase> nodesMap;
-	ArrayList<NodeBase> nodes;
+	private HashMap<Coordonate, NodeBase> nodesMap;
+	private ArrayList<NodeBase> nodes;
 
 	public HashMap<Coordonate, NodeBase> getNodeArray()
 	{
 		return nodesMap;
 	}
 
-	public ArrayList<NodeBase> getNodes() {
+	public  ArrayList<NodeBase> getNodes() {
 		return nodes;
 	}
 
@@ -140,6 +135,8 @@ public class NodeManager extends WorldSavedData {
 		return nodes.get(rand.nextInt(nodes.size()));
 	}
 
+
+
 	public void loadFromNbt(NBTTagCompound nbt) {
 		ArrayList<NodeBase> addedNode = new ArrayList<NodeBase>();
 		for (Object o : Utils.getTags(nbt))
@@ -152,7 +149,6 @@ public class NodeManager extends WorldSavedData {
 				addNode(node);
 				addedNode.add(node);
 				node.initializeFromNBT();
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -165,7 +161,9 @@ public class NodeManager extends WorldSavedData {
 
 	public void saveToNbt(NBTTagCompound nbt, int dim) {
 		int nodeCounter = 0;
-		for (NodeBase node : nodesMap.values())
+		ArrayList<NodeBase> nodesCopy = new ArrayList<NodeBase>();
+		nodesCopy.addAll(nodes);
+		for (NodeBase node : nodesCopy)
 		{
 			try {
 				if (node.mustBeSaved() == false) continue;
@@ -179,6 +177,7 @@ public class NodeManager extends WorldSavedData {
 			}
 
 		}
+		
 	}
 
 	public void clear() {
@@ -187,8 +186,8 @@ public class NodeManager extends WorldSavedData {
 	}
 
 	public void unload(int dimensionId) {
-		Iterator<NodeBase> i = nodes.iterator();
 
+		Iterator<NodeBase> i = nodes.iterator();
 		while (i.hasNext()) {
 			NodeBase n = i.next();
 			if (n.coordonate.dimention == dimensionId) {
