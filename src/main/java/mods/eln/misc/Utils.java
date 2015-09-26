@@ -1178,9 +1178,9 @@ public class Utils {
 	public static boolean isWater(Coordonate waterCoord) {
 		Block block = waterCoord.getBlock();
 		return (block == Blocks.flowing_water || block == Blocks.water
-				|| block == TFCBlocks.FreshWater
-				|| block == TFCBlocks.SaltWater
-				|| block == TFCBlocks.FreshWaterStationary || block == TFCBlocks.SaltWaterStationary);
+				|| block == TFCBlocks.freshWater
+				|| block == TFCBlocks.saltWater
+				|| block == TFCBlocks.freshWaterStationary || block == TFCBlocks.saltWaterStationary);
 	}
 
 	public static void addChatMessage(EntityPlayer entityPlayer, String string) {

@@ -28,7 +28,7 @@ public class TFCEvents {
 	
 	
 	public boolean IsATreeBlock(Block block) {
-		return block == TFCBlocks.LogNatural || block == TFCBlocks.LogNatural2;
+		return block == TFCBlocks.logNatural || block == TFCBlocks.logNatural2;
 	}
 
 	@SubscribeEvent
@@ -126,12 +126,12 @@ public class TFCEvents {
 				if (axe.onBlockDestroyed(stack, world, block, i, j, k, player)) {
 					world.setBlock(i + x, j + y, k + z, Blocks.air, 0, 0x2);
 					dropBlockAsItem(world, i + x, j + y, k + z, new ItemStack(
-							TFCItems.Logs, 1, block.damageDropped(l)));
+							TFCItems.logs, 1, block.damageDropped(l)));
 					notifyLeaves(world, i + x, j + y, k + z);
 				}
 			} else {
 				world.setBlockToAir(i, j, k);
-				dropBlockAsItem(world, i, j, k, new ItemStack(TFCItems.Logs, 1,
+				dropBlockAsItem(world, i, j, k, new ItemStack(TFCItems.logs, 1,
 						block.damageDropped(l)));
 				notifyLeaves(world, i + x, j + y, k + z);
 			}
