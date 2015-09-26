@@ -762,7 +762,7 @@ public class Eln {
 		
 		Item[] newaxes = new Item[] { findItemStack("Portable Electrical Axe")
 				.getItem() };
-		System.arraycopy(newaxes, 0, Recipes.Axes, Recipes.Axes.length - 1,
+		System.arraycopy(newaxes, 0, Recipes.axes, Recipes.axes.length - 1,
 				newaxes.length);
 
 		LanguageRegistry.instance().addStringLocalization("itemGroup.Eln",
@@ -5609,9 +5609,9 @@ public class Eln {
 		anvilmgr.addPlan("ea_cable", new PlanRecipe(new RuleEnum[]{RuleEnum.HITLAST, RuleEnum.HITSECONDFROMLAST, RuleEnum.HITTHIRDFROMLAST}));
 
 		// Cable recipes
-		anvilmgr.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.CopperIngot2x), null, "ea_cable", 70, false, AnvilReq.COPPER.ordinal(), findItemStack("Copper Cable", 6)).addRecipeSkill(Global.SKILL_TOOLSMITH));
-		anvilmgr.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.WroughtIronIngot2x), null, "ea_cable", 70, false, AnvilReq.WROUGHTIRON.ordinal(), findItemStack("Iron Cable", 6)).addRecipeSkill(Global.SKILL_TOOLSMITH));
-		anvilmgr.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.PlatinumIngot2x), null, "ea_cable", 70, false, AnvilReq.STEEL.ordinal(), findItemStack("Tungsten Cable", 6)).addRecipeSkill(Global.SKILL_TOOLSMITH));
+		anvilmgr.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.copperIngot2x), null, "ea_cable", 70, false, AnvilReq.COPPER.ordinal(), findItemStack("Copper Cable", 6)).addRecipeSkill(Global.SKILL_TOOLSMITH));
+		anvilmgr.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.wroughtIronIngot2x), null, "ea_cable", 70, false, AnvilReq.WROUGHTIRON.ordinal(), findItemStack("Iron Cable", 6)).addRecipeSkill(Global.SKILL_TOOLSMITH));
+		anvilmgr.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.platinumIngot2x), null, "ea_cable", 70, false, AnvilReq.STEEL.ordinal(), findItemStack("Tungsten Cable", 6)).addRecipeSkill(Global.SKILL_TOOLSMITH));
 	}
 
 	void recipeBatteryItem() {
@@ -6525,11 +6525,11 @@ public class Eln {
 		
 		// TFC Addition
 		for (int i = 0; i < Global.ORE_METAL.length; i++)
-			oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(TFCBlocks.Ore) + (i << 12), 1));
+			oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(TFCBlocks.ore) + (i << 12), 1));
 		for (int i = 0; i < Global.ORE_MINERAL.length; i++)
-			oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(TFCBlocks.Ore2) + (i << 12), 1));
+			oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(TFCBlocks.ore2) + (i << 12), 1));
 		for (int i = 0; i < Global.ORE_MINERAL2.length; i++)
-			oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(TFCBlocks.Ore3) + (i << 12), 1));
+			oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(TFCBlocks.ore3) + (i << 12), 1));
 
 		oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(this.oreBlock) + (1 << 12), 10 / 100f));
 		oreScannerConfig.add(new OreScannerConfigElement(Block.getIdFromBlock(this.oreBlock) + (4 << 12), 20 / 100f));
